@@ -2,6 +2,8 @@
 
 Practice Google's [Elephant-Goldfish Model (EGM)](https://github.com/google/elephant-goldfish-model) in a small webhook delivery project. You'll learn how to give a fresh reviewer enough context to find gaps, turn findings into decisions, and use an approved design to guide implementation.
 
+[Open the course on GitHub Pages](https://nicolas-found42.github.io/lessons/).
+
 Start with [the lab setup](exercises/01-first-goldfish-review/01.01-set-up-the-lab/explainer/readme.md). Open each problem first, then use its solution to check your work. Keep one lab copy for the first two sections and make a clean copy for maintenance.
 
 ## First Goldfish review
@@ -28,3 +30,15 @@ Start with [the lab setup](exercises/01-first-goldfish-review/01.01-set-up-the-l
 pnpm dlx ai-hero-cli@0.4.1 internal lint
 node --test lab/test/deliver-batch.test.mjs
 ```
+
+## Build and preview the website
+
+The website renders the Markdown in `exercises/` and packages `lab/` as a downloadable ZIP. Edit those files to update the published lessons and starter project. GitHub Actions builds and deploys the site when `main` changes.
+
+```sh
+npm ci
+npm run build
+python3 -m http.server --bind 127.0.0.1 --directory dist 8000
+```
+
+Open [the local preview](http://127.0.0.1:8000/).
